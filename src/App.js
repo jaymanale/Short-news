@@ -1,50 +1,59 @@
 import React from 'react';
-import axios from 'axios';
 import LazyLoad from 'react-lazyload';
-import MyLoader from './placeholderLoader';
+import {
+  getTopHeadlines,
+  getTechnology,
+  getBusiness,
+} from './services/newsService';
+
+import ArticleCard from './components/articleCard';
 
 class App extends React.Component {
   state = {
     news: [],
+    technology: [],
+    business: [],
     errors: {},
   };
 
-  componentDidMount() {
-    axios
-      .get(
-        'https://newsapi.org/v2/top-headlines?country=in&apiKey=d6ce7b4875084b0faaa665b61ed31ad3'
-      )
-      .then((res) => {
-        console.log(res.data.articles);
-        this.setState({ news: res.data.articles });
-        console.log('After SetState');
-      })
-      .catch((e) => console.log(e));
+  async componentDidMount() {
+    let news = await getTopHeadlines();
+    let technology = await getTechnology();
+    let business = await getBusiness();
+
+    this.setState({ news, technology, business });
   }
 
   render() {
-    const { news } = this.state;
+    const { news, technology, business } = this.state;
     return (
       <div className="container-fluid text-center">
         <div className="row content">
-          <div className="col-sm-2 col-md-2">
-            <p>
-              <a href="#">Link</a>
-            </p>
-            <p>
-              <a href="#">Link</a>
-            </p>
-            <p>
-              <a href="#">Link</a>
-            </p>
+          <div className="col-sm-4 col-md-4 col-lg-4">
+            <h1 className="text-center">Top Stories</h1>
+            {news.map((article) => (
+              <LazyLoad key={article.title} placeholder={<Loading />}>
+                <ArticleCard {...article} />
+              </LazyLoad>
+            ))}
           </div>
-          <div className="col-sm-6 col-md-6 ">
-            {news.length > 0 &&
-              news.map((article) => (
-                <LazyLoad key={article.title} placeholder={<Loading />}>
-                  <ArticleCard {...article} />
-                </LazyLoad>
-              ))}
+
+          <div className="col-sm-4 col-md-4 col-lg-4">
+            <h1 className="text-center">Technology</h1>
+            {technology.map((article) => (
+              <LazyLoad key={article.title} placeholder={<Loading />}>
+                <ArticleCard {...article} />
+              </LazyLoad>
+            ))}
+          </div>
+
+          <div className="col-sm-4 col-md-4 col-lg-4">
+            <h1 className="text-center">Business</h1>
+            {business.map((article) => (
+              <LazyLoad key={article.title} placeholder={<Loading />}>
+                <ArticleCard {...article} />
+              </LazyLoad>
+            ))}
           </div>
         </div>
       </div>
@@ -52,29 +61,9 @@ class App extends React.Component {
   }
 }
 
-const Loading = () => {
-  return <h2>Loading...</h2>;
-};
-
-const ArticleCard = ({ url, title, urlToImage, description, publishedAt }) => {
-  return (
-    <a href={url} target="_blank" className="text-dark">
-      <div className="card mb-3">
-        <img
-          src={urlToImage}
-          className="card-img-top img-fluid"
-          height="40"
-          alt={title}
-        />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text"> {description}</p>
-          <p className="card-text">
-            <small className="text-muted">{publishedAt}</small>
-          </p>
-        </div>
-      </div>
-    </a>
-  );
-};
+const Loading = () => (
+  <div>
+    <h1 className="display-1">Loading...</h1>
+  </div>
+);
 export default App;
