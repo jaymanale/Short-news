@@ -6,8 +6,7 @@ const Base = ({ children }) => {
   return (
     <div>
       <Navbar />
-
-      {children}
+      <div className="mt-3">{children}</div>
     </div>
   );
 };

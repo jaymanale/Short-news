@@ -1,20 +1,11 @@
 import React from 'react';
-import LazyLoad from 'react-lazyload';
+import ImageCard from './../common/ImageCard';
 
 const ArticleCard = ({ url, title, urlToImage, description, publishedAt }) => {
   return (
     <div className="card mb-3">
-      <LazyLoad height={200}>
-        <a href={url} target="_blank">
-          <img
-            src={urlToImage}
-            className="card-img-top img-fluid"
-            height="40"
-            href={url}
-            alt={title}
-          />
-        </a>
-      </LazyLoad>
+      <ImageCard urlToImage={urlToImage} title={title} />
+
       <div className="card-body">
         <a href={url} target="_blank">
           <h5 className="card-title text-dark">{title}</h5>
