@@ -11,6 +11,7 @@
     "react-content-loader": "^5.0.4",
     "react-dom": "^16.13.1",
     "react-lazyload": "^2.6.7",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {

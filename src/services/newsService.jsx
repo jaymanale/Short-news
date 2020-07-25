@@ -1,11 +1,21 @@
 import axios from 'axios';
 
-// 'https://newsapi.org/v2/top-headlines?country=in&category=technology&page=2&apiKey=d6ce7b4875084b0faaa665b61ed31ad3'
-export const getTopHeadlines = async (page) => {
+//`https://gnews.io/api/v3/topics/world?country=in&max=50&token=67780986506c8922cf308108079529fd`
+export const getTopHeadlines = async (category) => {
+  console.log('Category:', category);
   let response = await axios.get(
-    `http://newsapi.org/v2/top-headlines?country=in&page=${page}&ts=1&apiKey=d6ce7b4875084b0faaa665b61ed31ad3`
+    `https://gnews.io/api/v3/top-news?country=in&token=67780986506c8922cf308108079529fd`
   );
-  console.log(response.data);
+  console.log(response);
+  return response.data;
+};
+
+export const getCategoryNews = async (category) => {
+  console.log('Category:', category);
+  let response = await axios.get(
+    `https://gnews.io/api/v3/topics/${category}?country=in&token=67780986506c8922cf308108079529fd`
+  );
+  console.log(response);
   return response.data;
 };
 

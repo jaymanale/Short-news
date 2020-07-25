@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { getTopHeadlines } from './services/newsService';
+import { getCategoryNews } from './../services/newsService';
 
-import Base from './common/Base';
-import ArticleCard from './components/articleCard';
-import LoadMore from './common/LoadMore';
-import Loading from './common/Loading';
+import Base from './../common/Base';
+import ArticleCard from './articleCard';
+import LoadMore from './../common/LoadMore';
+import Loading from './../common/Loading';
 
-class App extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     console.log('props constructor:', props);
@@ -27,7 +27,7 @@ class App extends React.Component {
 
   async loadData() {
     const { news, category } = this.state;
-    let moreNews = await getTopHeadlines(category);
+    let moreNews = await getCategoryNews(category);
     this.setState({
       news: [...news, ...moreNews.articles],
       totalResults: moreNews.totalResults,
@@ -48,13 +48,15 @@ class App extends React.Component {
     );
   }
 
-  getAllNews({ news, loading }) {
+  getAllNews({ news, loading, category }) {
     return (
       <div className="container">
         <div className="row">
           <div className="col-sm-8 col-md-8 col-lg-8 offset-sm-2 offset-md-2 offset-lg-2">
             {!loading && (
-              <h4 className="text-weight-bold text-center">TOP NEWS</h4>
+              <h4 className="text-weight-bold text-center">
+                {category.toUpperCase()}
+              </h4>
             )}
             {!loading &&
               news.map((unit) => <ArticleCard key={unit.title} {...unit} />)}
@@ -81,4 +83,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Home;
