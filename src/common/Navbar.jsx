@@ -18,7 +18,7 @@ const Navbar = () => {
         <Link className="textColorGradiant" to="/">
           <p
             className="text-weight-bold text-white"
-            style={{ fonrSize: '2rem' }}
+            style={{ fontSize: '2rem' }}
           >
             <span role="img" aria-label="news icon">
               📰
