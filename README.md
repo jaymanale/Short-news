@@ -7,7 +7,9 @@
   <img alt="Github: JayManale" src="https://img.shields.io/github/last-commit/jaymanale/Official-Website-Version-2" />
 </p>
 
-> Short-News is React based  project for get latest news using lazy-loading
+> Short-News is React based  project to get latest news using NewsAPI
+
+### ✨ [Demo](https://short-news.netlify.app/)
 
 ## Install
 
