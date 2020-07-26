@@ -10,7 +10,7 @@ import Loading from './../common/Loading';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props constructor:', props);
+    
     this.state = {
       category: props.location.state,
       news: [],
@@ -34,7 +34,7 @@ class Home extends React.Component {
       loading: false,
       loadMore: false,
     });
-    console.log('State:', this.state);
+    
   }
 
   handleLoadMore({ page }) {
