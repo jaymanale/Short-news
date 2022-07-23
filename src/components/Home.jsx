@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { getCategoryNews } from './../services/newsService';
+import { getCategoryNews } from "./../services/newsService";
 
-import Base from './../common/Base';
-import ArticleCard from './articleCard';
-import LoadMore from './../common/LoadMore';
-import Loading from './../common/Loading';
+import Base from "./../common/Base";
+import ArticleCard from "./articleCard";
+import LoadMore from "./../common/LoadMore";
+import Loading from "./../common/Loading";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       category: props.location.state,
       news: [],
@@ -28,13 +28,13 @@ class Home extends React.Component {
   async loadData() {
     const { news, category } = this.state;
     let moreNews = await getCategoryNews(category);
+
     this.setState({
       news: [...news, ...moreNews.articles],
       totalResults: moreNews.totalResults,
       loading: false,
       loadMore: false,
     });
-    
   }
 
   handleLoadMore({ page }) {

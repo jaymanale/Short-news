@@ -1,17 +1,17 @@
-import React from 'react';
-import ImageCard from './../common/ImageCard';
+import React from "react";
+import ImageCard from "./../common/ImageCard";
 
 const ArticleCard = ({
   url,
   title,
-  urlToImage,
+  image,
   description,
   publishedAt,
   source,
 }) => {
   return (
     <div className="card mb-3">
-      <ImageCard urlToImage={urlToImage} title={title} />
+      <ImageCard urlToImage={image} title={title} />
 
       <div className="card-body">
         <a href={url} target="_blank" rel="noopener noreferrer">
