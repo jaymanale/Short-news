@@ -1,40 +1,62 @@
- <h1 align="center">Welcome to Short News Project 👋</h1>
+<h1 align="center">Welcome to Short News Project 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
-  <a href="https://twitter.com/JayManale" target="_blank">
-    <img alt="Twitter: JayManale" src="https://img.shields.io/twitter/follow/JayManale.svg?style=social" />
-  </a>
-  <img alt="Github: JayManale" src="https://img.shields.io/github/last-commit/jaymanale/Official-Website-Version-2" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Github: JayManale" src="https://img.shields.io/github/last-commit/jaymanale/covid-19-report" />
 </p>
+
+ 
 
 > Short-News is React based  project to get latest news using NewsAPI
 
-### ✨ [Demo](https://short-news.netlify.app/)
+Let go to [Short News](https://short-news.netlify.app/) 👉
 
-## Install
+![gif](https://user-images.githubusercontent.com/5653906/211148550-76532c90-3f55-4e21-b5bd-a365358886bd.gif)
 
-```sh
-npm install
+## Run Locally 🖥️
+
+Clone the project
+
+```bash
+  git clone https://github.com/jaymanale/Short-news.git
 ```
 
-## Usage
+Go to the project directory
 
-```sh
-npm start
+```bash
+  cd Short-news
 ```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+## Screenshots 📸
+
+<img width="960" alt="image1" src="https://user-images.githubusercontent.com/5653906/211148554-6a8b7079-6e5c-4512-8e4c-b2e40fed4341.png">
+
+
 
 ## Author
 
-:man: **Jayram Manale**
+**Jayram Manale** 🧑‍💻
 
-- Website: www.jayrammanale.com
-- Twitter: [@JayManale](https://twitter.com/JayManale)
-- Github: [@jaymanale](https://github.com/jaymanale)
-- LinkedIn: [@jaymanale](https://linkedin.com/in/jayram-manale)
+- [Website](https://www.jayrammanale.com/)
+- [Twitter](https://twitter.com/JayManale)
+- [Github](https://github.com/jaymanale)
+- [LinkedIn](https://linkedin.com/in/jayram-manale)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+## Feedback
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+If you have any feedback, please reach out at jaymanale29@gmail.com
